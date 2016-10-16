@@ -20,4 +20,16 @@ public class Main {
         }
         return cache[n];
     }
+	//2.recursion
+    public static int numWays1(int n,int k){
+        if(n==0||k==0)return 0;
+        if(n==1)return k;
+        int index=n;
+        return core(n,k,index);
+    }
+    public static int core(int n,int k,int index){
+        if(index==1)return k;
+        if(index==2)return k*k;
+        return core(n,k,index-1)*(k-1)+core(n,k,index-2)*(k-1);
+    }
 }
